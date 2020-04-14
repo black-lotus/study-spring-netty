@@ -1,0 +1,31 @@
+<configuration scan="true">
+  <property resource="application.properties"/>
+
+  <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="APP">
+    <file>${log.file.directory}-app.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!--rollover daily-->
+      <fileNamePattern>${log.file.directory}.%d{yyyy-MM-dd}.%i-app.log</fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy
+        class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <!-- or whenever the file size reaches 400MB -->
+        <maxFileSize>400MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+    </rollingPolicy>
+    <encoder>
+      <pattern>[%level] %date{YYYY-MM-dd HH:mm:ss} [%thread] %logger{10} %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+    <encoder>
+      <pattern>%date{YYYY-MM-dd HH:mm:ss} %level [%thread] %logger{10} [%file:%line] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <logger additivity="false" level="INFO" name="id.dondon.netty">
+    <appender-ref ref="APP"/>
+  </logger>
+
+</configuration>
