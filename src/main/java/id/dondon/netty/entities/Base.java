@@ -24,7 +24,6 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Base implements Serializable {
 
   @Id
-  @Field(value = BaseFields.ID)
   private String id;
 
   @Version
