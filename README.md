@@ -1,18 +1,18 @@
-##Install Dependencies
+## Install Dependencies
 
 ```$ mvn clean install```
 
 
-##Run Application
+## Run Application
 
 ```$ mvn spring-boot:run```
 
-##Swagger
+## Swagger
 
 http://localhost:8080/swagger-ui.html
 
 
-##Current Issues
+## Current Issues
 
 - [ ] application.properties does not recognize by spring-boot
 
